@@ -1,7 +1,7 @@
 Summary:	Extremely powerful file compression utility
 Name:		bzip2
 Version:	1.0.6
-Release:	3
+Release:	4
 License:	BSD-like
 Group:		Applications/Archiving
 Source0:	http://www.bzip.org/%{version}/%{name}-%{version}.tar.gz
@@ -27,7 +27,11 @@ identical.
 %package libs
 Summary:	libbz2 library
 Group:		Libraries
+%ifarch %{x8664}
+Provides:	libbz2.so.1.0()(64bit)
+%else
 Provides:	libbz2.so.1.0
+%endif
 
 %description libs
 libbz2 library.
