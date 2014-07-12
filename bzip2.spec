@@ -1,9 +1,9 @@
-Summary:	Extremely powerful file compression utility
+Summary:	High-quality data compressor
 Name:		bzip2
 Version:	1.0.6
-Release:	4
+Release:	5
 License:	BSD-like
-Group:		Applications/Archiving
+Group:		Core/Applications
 Source0:	http://www.bzip.org/%{version}/%{name}-%{version}.tar.gz
 # Source0-md5:	00b516f4704d4a7cb50a1d97e6e8e15b
 Patch0:		%{name}-libtoolizeautoconf.patch
@@ -16,17 +16,15 @@ Requires:	%{name}-libs = %{epoch}:%{version}-%{release}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-Bzip2 compresses files using the Burrows-Wheeler block-sorting text
-compression algorithm, and Huffman coding. Compression is generally
-considerably better than that achieved by more conventional
-LZ77/LZ78-based compressors, and approaches the performance of the PPM
-family of statistical compressors. The command-line options are
-deliberately very similar to those of GNU Gzip, but they are not
-identical.
+bzip2 is a freely available, patent free, high-quality data compressor.
+It typically compresses files to within 10% to 15% of the best
+available techniques (the PPM family of statistical compressors),
+whilst being around twice as fast at compression and six times faster
+at decompression.
 
 %package libs
 Summary:	libbz2 library
-Group:		Libraries
+Group:		Core/Libraries
 %ifarch %{x8664}
 Provides:	libbz2.so.1.0()(64bit)
 %else
