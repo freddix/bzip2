@@ -1,19 +1,23 @@
+# based on PLD Linux spec git://git.pld-linux.org/packages/bzip2.spec
 Summary:	High-quality data compressor
 Name:		bzip2
 Version:	1.0.6
-Release:	5
+Release:	6
 License:	BSD-like
 Group:		Core/Applications
 Source0:	http://www.bzip.org/%{version}/%{name}-%{version}.tar.gz
 # Source0-md5:	00b516f4704d4a7cb50a1d97e6e8e15b
 Patch0:		%{name}-libtoolizeautoconf.patch
 Patch1:		%{name}-bzgrep.patch
+Patch2:		%{name}-bzip2recover.patch
 URL:		http://www.bzip.org/
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	libtool
 Requires:	%{name}-libs = %{epoch}:%{version}-%{release}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+
+%define		specflags   -O3
 
 %description
 bzip2 is a freely available, patent free, high-quality data compressor.
@@ -46,6 +50,7 @@ Libbz2 library header files.
 %setup -q
 %patch0 -p1
 %patch1 -p1
+%patch2 -p1
 
 %build
 %{__aclocal}
